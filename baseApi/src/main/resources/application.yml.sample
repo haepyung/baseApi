@@ -1,0 +1,26 @@
+spring:
+    
+    devtools.restart:
+        enabled: true
+        exclude: logs/**
+    
+    datasource:
+        url: jdbc:mysql://192.168.10.213:3306/base?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC
+        username: base
+        password: base
+        
+    jpa:
+        database-platform: org.hibernate.dialect.MySQLDialect
+        generate-ddl: false
+        hibernate:
+            ddl-auto: none
+            naming:
+                implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        open-in-view: true
+        show-sql: false
+        
+    liquibase.change-log: classpath:db/changelog/db.changelog-master.yml
+
+server: 
+    port: 8010
